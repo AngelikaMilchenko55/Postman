@@ -1,6 +1,25 @@
-starships запрос, который вернет все корабли:
-http://swapi.dev/api/starships/
 
-запрос, который вернет нам второй корабль из списка
-http://swapi.dev/api/starships/3/
+1. Запрос на получение изображения без передачи допюпараметров:
+https://api.nasa.gov/planetary/apod?api_key=8leCDJpazvN0IS56e6LgoGg6tQzIaEIcT3nfrr1A
+Тест:
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+}); 
 
+Запрос на получения изображения при передачи параметра count:2 (получаем два рандомных изображения):
+https://api.nasa.gov/planetary/apod?api_key=8leCDJpazvN0IS56e6LgoGg6tQzIaEIcT3nfrr1A&count=2
+Тесты:
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+pm.test("Response time is less than 200ms", function () {
+    pm.expect(pm.response.responseTime).to.be.below(300);
+});
+
+Запрос на получения изображения при передачи параметра date:2022-10-10:
+https://api.nasa.gov/planetary/apod?api_key=8leCDJpazvN0IS56e6LgoGg6tQzIaEIcT3nfrr1A&date=2022-10-10
+Тест:
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
