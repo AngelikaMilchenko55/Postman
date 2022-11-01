@@ -1,5 +1,5 @@
 
-1. Запрос на получение изображения без передачи допюпараметров:
+1. Запрос на получение изображения без передачи доп.параметров:
 https://api.nasa.gov/planetary/apod?api_key=8leCDJpazvN0IS56e6LgoGg6tQzIaEIcT3nfrr1A
 Тест:
 pm.test("Status code is 200", function () {
@@ -13,8 +13,8 @@ pm.test("Status code is 200", function () {
     pm.response.to.have.status(200);
 });
 
-pm.test("Response time is less than 200ms", function () {
-    pm.expect(pm.response.responseTime).to.be.below(300);
+pm.test("Response time is less than 600ms", function () {
+    pm.expect(pm.response.responseTime).to.be.below(600);
 });
 
 Запрос на получения изображения при передачи параметра date:2022-10-10:
